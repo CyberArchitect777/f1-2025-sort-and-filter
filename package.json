@@ -1,0 +1,29 @@
+{
+  "name": "f1-2025-sort-and-filter",
+  "version": "0.1.0",
+  "description": "A simple demonstration of the use of HTML, CSS and TypeScript to implement a website to display, sort and filter driver information from the 2025 season.",
+  "main": "dist/script.js",
+  "scripts": {
+    "test": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyberArchitect777/f1-2025-sort-and-filter.git"
+  },
+  "keywords": [
+    "f1",
+    "html",
+    "css",
+    "typescript",
+    "filter",
+    "sort",
+    "demo",
+    "demonstration"
+  ],
+  "author": "Barrie Millar",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CyberArchitect777/f1-2025-sort-and-filter/issues"
+  },
+  "homepage": "https://github.com/CyberArchitect777/f1-2025-sort-and-filter#readme"
+}
