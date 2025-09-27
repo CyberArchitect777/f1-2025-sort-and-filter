@@ -7,7 +7,23 @@
         <h1>Welcome to the F1 2005 Driver Sort and Filter Demonstration Page</h1>
         <h2>Built in HTML, CSS and TypeScript</h2>
         <h3>By Barrie Millar</h3>
-        <table>
+        <form id="filter-form">
+            <label for="sort-by">Sort By:</label>
+            <select id="sort-by" name="sort-by">
+                <option value="nameaz">Name (A-Z)</option>
+                <option value="nameza">Name (Z-A)</option>
+                <option value="teamaz">Team (A-Z)</option>
+                <option value="teamza">Team (Z-A)</option>
+                <option value="nationaz">Nationality (A-Z)</option>
+                <option value="nationza">Nationality (Z-A)</option>
+                <option value="firstyear-asc">First Race Year (Earlier First)</option>
+                <option value="firstyear-desc">First Race Year (Later First)</option>
+                <option value="rookie-first">Rookie in 2025 (Rookies First)</option>
+                <option value="rookie-last">Rookie in 2025 (Rookies Last)</option>
+            </select>
+            <input type="button" value="Sort" id="sort-button">
+        </form>
+        <table border="1">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -17,7 +33,7 @@
                     <th>Rookie In 2025</th>
                 </tr>
             </thead>
-            <tbody id="driver-table-body">
+            <tbody id="driver-table-data">
                 <!-- Driver rows will be populated here by script.js -->
             </tbody>
         </table>

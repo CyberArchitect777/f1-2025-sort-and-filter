@@ -1,6 +1,4 @@
 
-let testArray: number[] = [5, 3, 8, 1, 2];
-
 interface Driver {
   name: string;
   team: string;
@@ -41,9 +39,22 @@ const drivers: Driver[] = [
   { "name": "Isack Hadjar", "team": "Racing Bulls", "nationality": "French", "firstRaceYear": 2025, "rookie": true }
 ];
 
-let message: string = "Hello World";
-let htmlElement = document.getElementById("message");
-if (htmlElement)
-{
-    htmlElement.innerText = message    
+let tableDisplay = document.getElementById("driver-table-data") as HTMLTableElement;
+let sortButton = document.getElementById("sort-button") as HTMLButtonElement;
+let sortSelection = document.getElementById("sort-selection") as HTMLSelectElement;
+
+sortButton.addEventListener("click", sortDrivers);
+
+function sortDrivers() {
+}
+
+function renderDriverTable() {
+    for (let driver of drivers) {
+        let row = tableDisplay.insertRow();
+        row.insertCell().innerText = driver.name;
+        row.insertCell().innerText = driver.team;
+        row.insertCell().innerText = driver.nationality;
+        row.insertCell().innerText = driver.firstRaceYear.toString();
+        row.insertCell().innerText = driver.rookie ? "Yes" : "No";
+    }
 }

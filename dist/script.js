@@ -1,5 +1,4 @@
 "use strict";
-let testArray = [5, 3, 8, 1, 2];
 const drivers = [
     { "name": "Lando Norris", "team": "McLaren", "nationality": "British", "firstRaceYear": 2019, "rookie": false },
     { "name": "Oscar Piastri", "team": "McLaren", "nationality": "Australian", "firstRaceYear": 2023, "rookie": false },
@@ -22,8 +21,19 @@ const drivers = [
     { "name": "Liam Lawson", "team": "Racing Bulls", "nationality": "New Zealander", "firstRaceYear": 2023, "rookie": true },
     { "name": "Isack Hadjar", "team": "Racing Bulls", "nationality": "French", "firstRaceYear": 2025, "rookie": true }
 ];
-let message = "Hello World";
-let htmlElement = document.getElementById("message");
-if (htmlElement) {
-    htmlElement.innerText = message;
+let tableDisplay = document.getElementById("driver-table-data");
+let sortButton = document.getElementById("sort-button");
+let sortSelection = document.getElementById("sort-selection");
+sortButton.addEventListener("click", sortDrivers);
+function sortDrivers() {
+}
+function renderDriverTable() {
+    for (let driver of drivers) {
+        let row = tableDisplay.insertRow();
+        row.insertCell().innerText = driver.name;
+        row.insertCell().innerText = driver.team;
+        row.insertCell().innerText = driver.nationality;
+        row.insertCell().innerText = driver.firstRaceYear.toString();
+        row.insertCell().innerText = driver.rookie ? "Yes" : "No";
+    }
 }
