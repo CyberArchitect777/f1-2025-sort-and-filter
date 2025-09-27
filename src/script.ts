@@ -58,3 +58,5 @@ function renderDriverTable() {
         row.insertCell().innerText = driver.rookie ? "Yes" : "No";
     }
 }
+
+renderDriverTable();
