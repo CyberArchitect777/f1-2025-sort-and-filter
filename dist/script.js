@@ -15,19 +15,53 @@ const drivers = [
     { "name": "Pierre Gasly", "team": "Alpine", "nationality": "French", "firstRaceYear": 2017, "rookie": false },
     { "name": "Franco Colapinto", "team": "Alpine", "nationality": "Argentinian", "firstRaceYear": 2024, "rookie": false },
     { "name": "Esteban Ocon", "team": "Haas", "nationality": "French", "firstRaceYear": 2016, "rookie": false },
-    { "name": "Oliver Bearman", "team": "Haas", "nationality": "British", "firstRaceYear": 2024, "rookie": true },
+    { "name": "Oliver Bearman", "team": "Haas", "nationality": "British", "firstRaceYear": 2024, "rookie": false },
     { "name": "Nico Hülkenberg", "team": "Kick Sauber", "nationality": "German", "firstRaceYear": 2010, "rookie": false },
     { "name": "Gabriel Bortoleto", "team": "Kick Sauber", "nationality": "Brazilian", "firstRaceYear": 2025, "rookie": true },
-    { "name": "Liam Lawson", "team": "Racing Bulls", "nationality": "New Zealander", "firstRaceYear": 2023, "rookie": true },
+    { "name": "Liam Lawson", "team": "Racing Bulls", "nationality": "New Zealander", "firstRaceYear": 2023, "rookie": false },
     { "name": "Isack Hadjar", "team": "Racing Bulls", "nationality": "French", "firstRaceYear": 2025, "rookie": true }
 ];
 let tableDisplay = document.getElementById("driver-table-data");
 let sortButton = document.getElementById("sort-button");
-let sortSelection = document.getElementById("sort-selection");
+let sortSelection = document.getElementById("sort-by");
 sortButton.addEventListener("click", sortDrivers);
 function sortDrivers() {
+    switch (sortSelection.selectedIndex) {
+        case 0:
+            drivers.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+        case 1:
+            drivers.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+        case 2:
+            drivers.sort((a, b) => a.team.localeCompare(b.team));
+            break;
+        case 3:
+            drivers.sort((a, b) => b.team.localeCompare(a.team));
+            break;
+        case 4:
+            drivers.sort((a, b) => a.nationality.localeCompare(b.nationality));
+            break;
+        case 5:
+            drivers.sort((a, b) => b.nationality.localeCompare(a.nationality));
+            break;
+        case 6:
+            drivers.sort((a, b) => a.firstRaceYear - b.firstRaceYear);
+            break;
+        case 7:
+            drivers.sort((a, b) => b.firstRaceYear - a.firstRaceYear);
+            break;
+        case 8:
+            drivers.sort((a, b) => Number(b.rookie) - Number(a.rookie));
+            break;
+        case 9:
+            drivers.sort((a, b) => Number(a.rookie) - Number(b.rookie));
+            break;
+    }
+    renderDriverTable();
 }
 function renderDriverTable() {
+    tableDisplay.innerHTML = "";
     for (let driver of drivers) {
         let row = tableDisplay.insertRow();
         row.insertCell().innerText = driver.name;
@@ -37,4 +71,4 @@ function renderDriverTable() {
         row.insertCell().innerText = driver.rookie ? "Yes" : "No";
     }
 }
-renderDriverTable();
+sortDrivers();
